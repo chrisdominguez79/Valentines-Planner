@@ -1,0 +1,462 @@
+@import url(https://db.onlinewebfonts.com/c/167010b2782077992836168b48b8c057?family=Lovelace+Text);
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+.no-scroll {
+  overflow: hidden;
+}
+body {
+
+	font-family: "Lovelace Text";
+	line-height: 1.5;
+	color: #333;
+	background: #fff;
+	margin:0;
+	padding:0;	
+}
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+h1,h2{
+	margin-bottom: 15px;
+}
+
+ul{
+	list-style-type: none;
+}
+
+.container{
+	max-width: 2000px;
+	margin: 0 auto;
+	padding: 0 30px;
+}
+
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.navbar{
+	/*background: #3474e6;*/
+	color: #fff;
+}
+
+
+.navbar a{
+	color: #fff;
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+}
+.navbar .list{
+	display: flex;
+	justify-content: space-between;
+	align-items: end;}
+
+
+.navbar ul{
+	display: flex;
+	  gap: 20px;
+}
+
+.navbar ul li{
+	margin-left: 20px;
+}
+
+/* Hamburger icon (hidden on desktop) */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+    position: absolute;
+  top: 15px;
+  right: 20px;
+  z-index: 1100;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+
+  .top-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* spacing between hamburger and logo */
+    padding: 10px 20px 0; /* reduce bottom padding */
+    margin-bottom: 0; /* remove extra spacing below */
+  }
+
+  .logo {
+    margin-bottom: 0; /* tighten space below logo */
+  }
+
+  .header {
+    display: block;
+    text-align: center;
+    padding-top: 0;
+  }
+
+  .header .container {
+    margin-top: -10px; /* reduce space between logo and text */
+  }
+
+  .header .container h1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .header .container button {
+    margin: 10px 0;
+  }
+
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    transition: right 0.3s ease;
+    padding-top: 80px;
+    z-index: 1000;
+  }
+
+  .navbar.active {
+    right: 0;
+    
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .hamburger {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    transition: color 0.3s ease;
+    z-index: 1100;
+    cursor: pointer;
+  }
+.hamburger.active {
+  color: #e6b249; /* gold or white for visibility */
+}
+  
+}
+
+
+/* Hide socials unless navbar is open on mobile */
+.mobile-socials {
+  display: none;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 10px;
+}
+
+.mobile-socials.active {
+  display: flex;
+}
+
+.mobile-socials a {
+  color: white;
+  font-size: 1.8rem;
+  transition: color 0.3s;
+}
+
+.mobile-socials a:hover {
+  color: #e6b249;
+}
+.mobile-socials a:nth-of-type(2) {
+ margin-left: 5px;
+}
+.mobile-socials a:nth-of-type(2):hover {
+  color: #e6b249;
+}
+
+/* Show when menu is active */
+.header.show-socials .mobile-socials {
+  display: flex;
+}
+
+/* Hide everything on larger screens */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  .navbar {
+    display: flex !important;
+  }
+
+  .mobile-socials {
+    display: none !important;
+  }
+}
+
+.header{
+	display:grid;
+	place-items: center;
+	text-align: center;
+	color:#e6b249;
+	height: 720px;
+	min-height: 400px;
+ 	background-image: url("logo.jpg");
+ 	background-position : center;
+ 	background-repeat: no-repeat;
+ 	background-size: cover;
+}
+.header .container{
+	display:grid;
+	place-items: center;
+}
+
+.container p{
+	color: #fff;
+}
+
+.logo{
+	top:0px;
+	left: 20px;
+	width: 250px; /* adjust as needed */
+	height: auto;
+}
+
+
+.ServiciosTitle img{
+  width: 100%;
+  height: 374px;
+  object-fit: cover;
+  max-width: 390px;
+  border-radius: 10px;
+}
+.ServiciosTitle{
+	display:flex;
+	flex-wrap:wrap;
+  justify-content: center; /* centers items horizontally */
+  gap: 30px; /* space between items */
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+
+}
+.ServiciosTitle > div {
+  flex: 0 1 calc(33.33% - 30px); /* three items per row with gap compensation */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Servicios em{
+	color:#e6b249;	
+	font-size: 4em;
+}
+.borders{
+border-block: 3px solid #e6b249;
+  font-size: 3em;
+  text-align: center;
+  margin-top: 10px 0;
+}
+
+@media (max-width: 768px) {
+  .ServiciosTitle > div {
+    flex: 0 1 100%;
+  }
+
+  .borders {
+    font-size: 2em;
+  }
+}
+.whatsapp-button {
+  background-color: #fff;
+  border: none;
+  width: 12em;
+  height: 3em;
+  color: #e6b249;
+  border-radius: 30em;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  display: inline-flex;           /* make the button a flex container */
+  align-items: center;            /* vertical center */
+  justify-content: center;        /* horizontal center */
+  text-decoration: none;
+  margin: 10px 0;
+}
+
+.header h1{
+	font-size: 3em;
+	font-weight: bold;
+	line-height: 1.2;
+}
+
+.fotos em{
+	color: #e6b249;
+	font-size:4em;
+}
+
+.collage-wrapper {
+  max-width: 1200px;   /* or whatever fits your layout best */
+  margin: 0 auto;
+  padding: 20px;
+    
+}
+
+.collage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas:
+    "img1  img3 img2"
+    "img4 img5  img2"
+    "img6 img7  img8";
+    gap: 10px;
+  grid-auto-rows: 250px; 
+}
+
+.img1 { grid-area: img1; }
+.img2 { grid-area: img2; }
+.img3 { grid-area: img3; }
+.img4 { grid-area: img4; }
+.img5 { grid-area: img5; }
+.img6 { grid-area: img6; }
+.img7 { grid-area: img7; }
+.img8 { grid-area: img8; }
+
+
+.img {
+  width: 100%;
+  height:100%;
+aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+  border-radius: 6px;
+}
+@media (max-width: 768px) {
+  .collage {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on phones */
+    grid-template-areas:
+      "img1 img2"	
+      "img3 img3"
+      "img4 img5"
+      "img6 img7"
+      "img8 img8";
+    gap: 8px; /* slightly smaller gap for phones */
+  }
+
+  .collage-wrapper {
+    padding: 10px;
+  }
+}
+
+
+.commentSection .row{
+	display: flex;
+	flex-wrap:wrap;
+	color:#e6b249;
+	gap: 20px;
+	padding: 50px 35px;
+	
+}
+
+.column_title{
+	display:flex;
+	align-items:center;
+	justify-content: center;
+	text-align: center;
+}
+.column_title em{
+	/*color:#e6b249; */
+	font-size: clamp(2em, 4vw, 4em);
+}
+
+.column_image {
+  display: flex;
+  align-items: center;     /* vertically center */
+  justify-content: center; /* optional: horizontally center too */
+}
+.column_image img{
+	
+    width: 100%;
+    height:auto;
+    max-width: 100%;
+    border-radius:8px;
+    
+}
+
+.column_comments p{
+	font-size: clamp(18px, 1.2vw, 20px);
+	/*color:#e6b249; */
+	margin-bottom: 10px;
+}
+.column_comments h5{
+	font-size:clamp(14px, 1.2vw, 18px);
+	color:#59493b;
+	margin-bottom: 20px;
+}
+
+.column {
+	flex: 1 1 300px;
+	min-width:250px;
+
+}
+
+
+.footer .row{
+	display: flex;
+	flex-wrap:wrap;
+	color:#e6b249;
+	gap: 20px;
+	padding: 50px 35px;
+	
+}
+
+.column_VISIT_TITLE{
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content: center;
+	text-align: center;
+	  max-width: 500px;
+	
+}
+.column_VISIT_TITLE em{
+	font-size: clamp(2em, 4vw, 4em);
+}
+.column_VISIT_TITLE p{
+	
+	font-size: clamp(18px, 1.2vw, 20px);
+	color:#59493b;
+	margin-bottom: 10px;
+}
+.column_maps{
+	  display: flex;
+  align-items: center;     /* vertically center */
+  justify-content: center;
+	width: 100%;
+    height:auto;
+    max-width: 100%;
+    border-radius:8px;
+      flex: 2 1 500px; /* grow more than the title column */
+    
+    
+}
+
+
