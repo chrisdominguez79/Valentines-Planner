@@ -1,0 +1,10 @@
+@charset "UTF-8";
+.body{
+	   vertical-align:top;
+}
+.header{
+	display:grid;
+	place-items: center;
+	color:#e6b249;
+	  text-align: center;
+}

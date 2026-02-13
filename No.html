@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>How dare you!</title>
+ <link rel="stylesheet" href="Styles.css">
+ </head>
+<style>
+	body{
+	background-image: url('Cindwallpaper.jpg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	  background-attachment: fixed;
+ 	 background-size: cover;
+  }
+    /* Full-screen overlay */
+/* Full-screen overlay */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  justify-content: center; /* horizontal centering of loader-container */
+  align-items: center;     /* vertical centering of loader-container */
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Container for image + progress */
+.loader-container {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center;    /* center horizontally */
+  justify-content: center;/* center vertically within container if needed */
+  gap: 20px;              /* space between penguin and progress bar */
+}
+
+/* Ensure the penguin is treated as block */
+.preloader-img {
+  display: block;
+  margin: 0 auto; /* horizontal centering just in case */
+}
+
+/* Progress bar background */
+.progress-bar {
+  width: 300px;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Fill for progress */
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(to right, #ADD8E6, #87CEFA);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  transition: width 0.1s linear;
+}
+
+/* Hide preloader once done */
+.hide-preloader {
+  opacity: 0;
+  pointer-events: none;
+}
+</style>
+
+<div id="preloader" style="display:none;">
+  <div class="loader-container">
+    <img src="loadingPenguin.gif" alt="Loading..." width="150" class="preloader-img">
+    <div class="progress-bar">
+      <div class="progress-fill" id="progress-fill">0%</div>
+    </div>
+  </div>
+</div>
+
+<body class= "box">
+<div class="center">
+<img id="mainImg" src="grinch.gif" width="250" height="200">
+</div>
+<div class="content-box">
+<p id="mainText">Okayyy!! Va de nuez. Do you want to be my valentine? :)</p>
+
+  <div class="button-group">
+    <button id="yesBtn" onclick="goToPage('Yes.html')" class="selectbtn">Yes</button>
+    <button id="movingBtn" class="selectbtn">No</button>
+  </div>
+ </div> 
+ <script>
+ const btn = document.getElementById("movingBtn");
+
+ document.addEventListener("mousemove", (e) => {
+     const btnRect = btn.getBoundingClientRect();
+
+     const distanceX = e.clientX - (btnRect.left + btnRect.width / 2);
+     const distanceY = e.clientY - (btnRect.top + btnRect.height / 2);
+     const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
+
+     // If mouse gets close, move button
+     if (distance < 50) {
+         moveButton();
+     }
+ });
+ function goToPage(page) {
+     window.location.href = page;
+
+ const yesButton = document.getElementById("yesBtn");
+ }
+ function moveButton() {
+     const padding = 20;
+
+     const maxX = window.innerWidth - btn.offsetWidth - padding;
+     const maxY = window.innerHeight - btn.offsetHeight - padding;
+
+     const randomX = Math.random() * maxX;
+     const randomY = Math.random() * maxY;
+
+     btn.style.left = `${randomX}px`;
+     btn.style.top = `${randomY}px`;
+ }
+ 
+ // Prevent scroll restoration behavior
+ if ('scrollRestoration' in history) {
+   history.scrollRestoration = 'manual';
+ }
+ window.scrollTo(0, 0);
+
+ window.addEventListener('pageshow', function(event) {
+     const preloader = document.getElementById("preloader");
+     const progressFill = document.getElementById("progress-fill"); // add this in your HTML
+
+     // Only show loader on reload
+     if (event.persisted || performance.getEntriesByType("navigation")[0].type === "reload") {
+         preloader.style.display = "flex";
+         let progress = 0;
+
+         const interval = setInterval(() => {
+             progress += 1;
+             progressFill.style.width = progress + "%";
+             progressFill.textContent = progress + "%";
+
+             if (progress >= 100) {
+                 clearInterval(interval);
+                 // Fade out
+                 preloader.classList.add("hide-preloader");
+                 setTimeout(() => {
+                     preloader.style.display = "none";
+                 }, 500);
+             }
+         }, 20); // ~2 seconds total
+     }
+ });
+
+ </script>
+</body>
+</html>
