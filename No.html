@@ -96,20 +96,33 @@
   </div>
  </div> 
  <script>
- const btn = document.getElementById("movingBtn");
+const btn = document.getElementById("movingBtn");
 
- document.addEventListener("mousemove", (e) => {
-     const btnRect = btn.getBoundingClientRect();
+document.addEventListener("mousemove", (e) => {
+    const btnRect = btn.getBoundingClientRect();
 
-     const distanceX = e.clientX - (btnRect.left + btnRect.width / 2);
-     const distanceY = e.clientY - (btnRect.top + btnRect.height / 2);
-     const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
+    const distanceX = e.clientX - (btnRect.left + btnRect.width / 2);
+    const distanceY = e.clientY - (btnRect.top + btnRect.height / 2);
+    const distance = Math.sqrt(distanceX ** 2 + distanceY ** 2);
 
-     // If mouse gets close, move button
-     if (distance < 50) {
-         moveButton();
-     }
- });
+    if (distance < 50) {
+        moveButton();
+    }
+});
+
+function moveButton() {
+    const padding = 10; // keeps it slightly away from edges
+
+    const maxX = window.innerWidth - btn.offsetWidth - padding;
+    const maxY = window.innerHeight - btn.offsetHeight - padding;
+
+    const newX = Math.random() * maxX;
+    const newY = Math.random() * maxY;
+
+    btn.style.position = "fixed"; // important!
+    btn.style.left = newX + "px";
+    btn.style.top = newY + "px";
+}
  function goToPage(page) {
      window.location.href = page;
 
@@ -162,4 +175,5 @@
 
  </script>
 </body>
+
 </html>
