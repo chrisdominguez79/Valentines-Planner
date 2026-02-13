@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My love for you is eternal</title>
+ <link rel="stylesheet" href="Styles.css">
+ 
+ <style>
+ body{
+	background-image: url('loveBackground.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+    font-family: Georgia, serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: auto;
+}
+
+/* Full-screen overlay */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent; /* transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Spinning animation */
+#spinner {
+  width: 100px; /* size of your spinner */
+  height: 100px;
+  animation: spin 1s linear infinite;
+}
+
+/* Spin keyframes */
+@keyframes spin {
+  to { transform: rotate(720deg); }
+}
+
+/* Hide preloader once done */
+.hide-preloader {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="preloader">
+    <img src="loadingHeart.png" id="spinner" alt="Loading...">
+</div>
+
+<div class="paper-container">
+<img src="paper-bg.png" alt="Paper Scroll">
+   <div class ="paper-text"> 
+ <div class="left-text"><br><br>Nikki,</div>
+ <br>Como esta la mujer mas hermosa del mundo? En las ultimas semanas me la he pasado pensando en que forma podria mostrarte todo el amor que tengo hacia ti. 
+   Me diste una gran idea con el video de Tiktok pero tu eres todo mi mundo y queria demostrartelo y hacer esta pagina mucho más interactiva. 
+   Quisiera poder hacerte sentir como una princesa asi como el disco de Cinderella que viste tanto hasta no más poder que se rayó el disco. 
+   Baby para lo proximo voy a necesitar de tu parte para poder hacer una cita como a ti te guste. No te contare mas para poder dejarte pensando y pronto sabras a lo que me refiero. Espero y puedas disfrutar de esto al igual que yo lo hice al estar haciéndolo y pensar en cuanto te podria hacer sentir. 
+   Espero que lo disfrutes te amo con todo corazon.<br>
+   <div class="right-text">-Christian</div>
+    <br><br><br><button onclick="goToPage('multipleChoice.html')" class = "beginBtn">Comencemos</button>
+</div>
+</div>
+
+<script>
+function goToPage(page) {
+	  window.location.href = page;
+	}
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+window.scrollTo(0, 0);
+window.addEventListener("load", function() {
+
+	window.scrollTo(0, 0);
+    const preloader = document.getElementById("preloader");
+    const paper = document.querySelector(".paper-container");
+    
+    // fade out
+    preloader.classList.add("hide-preloader");
+
+    // optional: remove it completely after fade
+   setTimeout(() => {
+        preloader.style.display = "none";
+
+        // Add entrance animation class
+        paper.style.opacity = "2"; // make it visible
+        paper.style.animation = "enterFromBottom 3s ease-out forwards";
+
+        // Start text fade-in after 2s delay (or whatever your CSS delay is)
+        const paperText = document.querySelector(".paper-text");
+        paperText.style.animation = "fadeInText 1s ease-in 2.s forwards";
+
+    }, 2500); // match the CSS transition
+});
+</script>
+</body>
+</html>
