@@ -45,11 +45,6 @@
   gap: 20px;               /* space between buttons */
 }
 
-#movingBtn {
-  position: relative;      /* NOT absolute anymore */
-  transition: left 0.15s ease, top 0.15s ease;
-}
-
 /* Optional: keep your existing font + button styling nice */
 .selectbtn {
   margin: 0 10px;
@@ -133,4 +128,5 @@
 }
 @keyframes fadeInText {
     to { opacity: 1; }
+
 }
