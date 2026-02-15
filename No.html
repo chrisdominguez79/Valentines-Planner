@@ -111,7 +111,7 @@ document.addEventListener("mousemove", (e) => {
 });
 
 function moveButton() {
-    const padding = 10; // keeps it slightly away from edges
+    const padding = 20; // keeps it slightly away from edges
 
     const maxX = window.innerWidth - btn.offsetWidth - padding;
     const maxY = window.innerHeight - btn.offsetHeight - padding;
@@ -120,26 +120,15 @@ function moveButton() {
     const newY = Math.random() * maxY;
 
     btn.style.position = "fixed"; // important!
-    btn.style.left = newX + "px";
-    btn.style.top = newY + "px";
+     btn.style.left = `${randomX}px`;
+     btn.style.top = `${randomY}px`;
 }
  function goToPage(page) {
      window.location.href = page;
 
  const yesButton = document.getElementById("yesBtn");
  }
- function moveButton() {
-     const padding = 20;
 
-     const maxX = window.innerWidth - btn.offsetWidth - padding;
-     const maxY = window.innerHeight - btn.offsetHeight - padding;
-
-     const randomX = Math.random() * maxX;
-     const randomY = Math.random() * maxY;
-
-     btn.style.left = `${randomX}px`;
-     btn.style.top = `${randomY}px`;
- }
  
  // Prevent scroll restoration behavior
  if ('scrollRestoration' in history) {
@@ -177,3 +166,4 @@ function moveButton() {
 </body>
 
 </html>
+
